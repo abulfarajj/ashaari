@@ -1,0 +1,7 @@
+rules_version = '2';
+service cloud.firestore { match /databases/{db}/documents {
+  match /poems/{id} {
+    allow read: if true;
+    allow write: if request.auth != null
+      && request.auth.token.email == 'ahmadalmamun2022@gmail.com';
+  } } }
